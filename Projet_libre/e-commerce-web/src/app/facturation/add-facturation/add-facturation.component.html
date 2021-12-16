@@ -1,0 +1,64 @@
+<div class="col-md-6 facturation-container; scol-md-6 panier-container; col-md-6 address-container">
+  <h2 class="text-center">Ajouter une facture</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <div class="hidden">
+    <input type="text" formControlName="id" placeholder="id" name="id" class="form-control" id="id" >
+  </div>
+  <div class="form-group" required>
+    <label for="totalQt">totalQt:</label>
+    <input type="text" formControlName="totalQt" placeholder="totalQt" name="totalQt" class="form-control" id="totalQt" required="true">
+  </div>
+  <div class="form-group">
+    <label for="totalPrix">totalPrix</label>
+    <input type="text" formControlName="totalPrix" placeholder="totalPrix" name="totalPrix" class="form-control" id="totalPrix" required="true">
+  </div>
+  <div class="form-group">
+    <label for="payement">Payement</label>
+    <select defaulng-model="valueSelected" formControlName="payement" placeholder="payement" name="payement" class="form-control" id="payement" readonly="true">
+      <option value="VALIDE">Validé</option>
+      <option value="REJECT">Refusé</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="livraison">Livraison</label>
+    <select defaulng-model="valueSelected" formControlName="livraison" placeholder="livraison" name="livraison" class="form-control" id="livraison" readonly="true">
+      <option value="EN_COURS">En cours</option>
+      <option value="LIVREE">Livré</option>
+      <option value="NON_LIVREE">Non Livré</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="id">Id_Panier</label>
+    <input type="number" formControlName="panier" placeholder="id" name="id" class="form-control" id="id" required="true">
+  </div>
+  <div class="form-group">
+    <label for="quantite">Quantité</label>
+    <input type="number" formControlName="panier" placeholder="quantite" name="quantite" class="form-control" id="quantite" required="true">
+  </div>
+  <div class="form-group">
+    <label for="id">Id Adresse</label>
+    <input type="number" formControlName="address" placeholder="id" name="id" class="form-control" id="id" required="true">
+  </div>
+  <div class="form-group">
+    <label for="road">Rue</label>
+    <input type="text" formControlName="address" placeholder="road" name="road" class="form-control" id="road" required="true">
+  </div>
+  <div class="form-group">
+    <label for="postalCode">Code Postale</label>
+    <input type="text" formControlName="address" placeholder="postalCode" name="postalCode" class="form-control" id="postalCode" required="true">
+  </div>
+  <div class="form-group">
+    <label for="city">Ville</label>
+    <input type="text" formControlName="address" placeholder="city" name="city" class="form-control" id="city" required="true">
+  </div>
+  <div class="form-group">
+    <label for="country">Pays</label>
+    <input type="text" formControlName="address" placeholder="country" name="country" class="form-control" id="country" required="true">
+  </div>
+  <button class="btn btn-success">Ajouter</button>
+  </form>
+  <button class="btn btn-secondary pull-right" (click)="goBack()">
+    Cancel
+  </button>
+</div>
+  

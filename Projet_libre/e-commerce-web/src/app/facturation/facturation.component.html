@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">
+    <button (click)="createFacturation()" class="btn btn-default btn-lg pull-right">Créer une Facture</button>
+    Facturations <small>Listes des facturations</small>
+    </h1>
+  </div>
+</div>           
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="well well-sm">
+          <form action="#" method="get">
+          <div class="input-group">
+            <input class="form-control" id="system-search" name="search" autocomplete="off" placeholder="Rechercher une facturation" [(ngModel)]="term" required>
+            <span class="input-group-btn">
+              <i class="fa fa-search"></i>
+            </span>
+          </div>
+          </form>
+        </div>
+        <h3 class="panel-title"><i class="fa fa-users fa-fw"></i> Tables des Facturations</h3>
+      </div>
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover table-striped">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>TotalQt</th>
+                <th>TotalPrix</th>
+                <th>Payement</th>
+                <th>Livraison</th>
+                <th>Username</th>
+                <th>Panier</th>
+                <th>Address</th>
+                <th>Editer</th>
+                <th>Supprimer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let facturation of facturations | filter:term">
+                <td>{{facturation.id}}</td>
+                <td>{{facturation.totalQt}}</td>
+                <td>{{facturation.totalPrix}}</td>
+                <td>{{facturation.payement}}</td>
+                <td>{{facturation.livraison}}</td>
+                <td>{{facturation.address.user.username}}</td>
+                <td>{{facturation.panier.id}}</td>
+                <td>{{facturation.address.road}}
+                    {{facturation.address.postalCode}}
+                    {{facturation.address.city}}
+                    {{facturation.address.country}}
+                </td>
+                <td ng-if="authority === 'admin' || userId === facturation.user.id"><button class="btn btn-primary" (click)="editFacturation()">Update</button></td>
+                <td ng-if="authority === 'admin' || userId === facturation.user.id"><button class="btn btn-dark" (click)="deleteFacturation()">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

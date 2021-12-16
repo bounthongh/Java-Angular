@@ -1,0 +1,37 @@
+<div class="col-md-6 produit-container">
+  <h2 class="text-center">Ajouter un produit</h2>
+   <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <div class="hidden">
+        <input type="text" formControlName="id" placeholder="id" name="id" class="form-control" id="id">
+      </div>
+      <div class="form-group">
+        <label for="reference">Reference:</label>
+        <input type="text" formControlName="reference" placeholder="reference" name="reference" class="form-control" id="reference" required="true">
+      </div>
+      <div class="form-group">
+        <label for="prix">Prix:</label>
+        <input type="number" formControlName="prix" placeholder="prix" name="prix" class="form-control" id="prix" required="true">
+      </div>
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" formControlName="nom" placeholder="nom" name="nom" class="form-control" id="nom" required="true">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" formControlName="description" placeholder="description" name="description" class="form-control" id="description" required="true">
+      </div>
+      <div class="form-group">
+        <label for="stock">Stock</label>
+        <input type="number" formControlName="stock" placeholder="stock" name="stock" class="form-control" id="stock" required="true">
+      </div>
+      <div class="form-group">
+        <label for="url">Image</label>
+        <input type="text" formControlName="url" placeholder="url" name="url" class="form-control" id="url" required="true">
+      </div>
+    <button class="btn btn-success">Ajouter</button>
+  </form>
+  <button class="btn btn-secondary pull-right" (click)="goBack()">
+    Cancel
+  </button>
+</div>
+  

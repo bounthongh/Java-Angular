@@ -1,0 +1,29 @@
+<div *ngIf="isLoggedIn; else loggedOut">
+    Logged in as {{roles}}.
+    {{errorMessage}}
+</div>
+  
+<ng-template #loggedOut>
+  <div class="row col-sm-6" style="max-width:350px;">
+    <form name="form" (ngSubmit)="onSubmit()" #f="ngForm">
+    <div class="form-group">
+      <label for="username" style="margin:100px; margin-bottom: 10px">Identifiant</label>
+      <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel" required />
+    </div>
+    <div class="form-group">
+      <label for="password" style="margin:100px; margin-bottom: 10px">Mot de passe</label>
+      <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel" required />
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary">Connexion</button>
+      <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+        Connexion Impossible: {{errorMessage}}
+      </div>
+    </div>
+    </form>
+    <hr />
+    <p>Vous n'avez pas de compte ? Inscrivez-vous</p>
+    <a href="signup" class="btn btn-success">Inscrivez-vous</a>
+  </div>
+</ng-template>
+  
